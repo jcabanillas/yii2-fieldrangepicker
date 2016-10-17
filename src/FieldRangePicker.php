@@ -83,7 +83,7 @@ class FieldRangePicker extends InputWidget {
             Html::addCssClass($this->optionsTo, 'input-' . $this->size);
             Html::addCssClass($this->containerOptions, 'input-group-' . $this->size);
         }
-        Html::addCssClass($this->containerOptions, 'input-group');
+        Html::addCssClass($this->containerOptions, 'input-group input-daterange');
         Html::addCssClass($this->options, 'form-control');
         Html::addCssClass($this->optionsTo, 'form-control');
     }
