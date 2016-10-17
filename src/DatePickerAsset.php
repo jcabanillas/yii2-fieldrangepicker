@@ -11,21 +11,21 @@ namespace jcabanillas\fieldrangepicker;
 use yii\web\AssetBundle;
 
 /**
- * DateRangePickerAsset
+ * DatePickerAsset
  *
  * @author Antonio Ramirez <amigo.cobos@gmail.com>
  * @link http://www.ramirezcobos.com/
  * @link http://www.2amigos.us/
  * @package dosamigos\datepicker
  */
-class FieldRangePickerAsset extends AssetBundle {
+class DatePickerAsset extends AssetBundle {
 
-    public $sourcePath = '@vendor/jcabanillas/yii2-fieldrangepicker/src/assets';
+    public $sourcePath = '@bower/bootstrap-datepicker/dist';
     public $css = [
-        'css/bootstrap-fieldrangepicker.css'
+        'css/bootstrap-datepicker3.css',
     ];
     public $depends = [
-        'jcabanillas\fieldrangepicker\DatePickerAsset'
+        'yii\bootstrap\BootstrapPluginAsset'
     ];
 
 }
