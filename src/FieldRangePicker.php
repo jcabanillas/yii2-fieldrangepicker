@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) 2016 jcabanillas
  * @link https://bitevolution.net
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
+
 namespace jcabanillas\fieldrangepicker;
 
 use yii\base\InvalidConfigException;
@@ -18,52 +20,58 @@ use yii\widgets\InputWidget;
  * @link https://bitevolution.net/
  * @package jcabanillas\fieldrangepicker
  */
-class FieldRangePicker extends InputWidget
-{
+class FieldRangePicker extends InputWidget {
+
     /**
      * @var string the attribute name for date range (to Date)
      */
     public $attributeTo;
+
     /**
      * @var string the name for date range (to Date)
      */
     public $nameTo;
+
     /**
      * @var string the value for date range (to Date value)
      */
     public $valueTo;
+
     /**
      * @var array HTML attributes for the date to input
      */
     public $optionsTo;
+
     /**
      * @var string the label to. Defaults to 'to'.
      */
     public $labelTo = 'to';
+
     /**
      * @var string the size of the input ('lg', 'md', 'sm', 'xs')
      */
     public $size;
+
     /**
      * @var array HTML attributes to render on the container
      */
     public $containerOptions = [];
+
     /**
      * @var \yii\widgets\ActiveForm useful for client validation of attributeTo
      */
     public $form;
+
     /**
      * @var string the template to render. Used internally.
      */
     protected $_template = '{inputFrom}<span class="input-group-addon">{labelTo}</span>{inputTo}';
 
-
     /**
      * @inheritdoc
      * @throws \yii\base\InvalidConfigException
      */
-    public function init()
-    {
+    public function init() {
         parent::init();
         if ((!$this->hasModel() && $this->nameTo === null) || ($this->hasModel() && $this->attributeTo === null)) {
             // @codeCoverageIgnoreStart
@@ -83,41 +91,30 @@ class FieldRangePicker extends InputWidget
     /**
      * @inheritdoc
      */
-    public function run()
-    {
+    public function run() {
         if ($this->form) {
-            Html::addCssClass($this->options, 'rangepicker-from');
-            Html::addCssClass($this->optionsTo, 'rangepicker-to');
+            Html::addCssClass($this->options, 'picker-from');
+            Html::addCssClass($this->optionsTo, 'picker-to');
             $inputFrom = $this->form->field(
-                $this->model,
-                $this->attribute,
-                [
-                    'template' => '{input}{error}',
-                    'options' => ['class' => 'input-group rangepicker-range'],
-                ]
-            )->textInput($this->options);
+                            $this->model, $this->attribute, [
+                        'template' => '{input}{error}',
+                        'options' => ['class' => 'input-group picker-range'],
+                            ]
+                    )->textInput($this->options);
             $inputTo = $this->form->field(
-                $this->model,
-                $this->attributeTo,
-                [
-                    'template' => '{input}{error}',
-                    'options' => ['class' => 'input-group rangepicker-range'],
-                ]
-            )->textInput($this->optionsTo);
+                            $this->model, $this->attributeTo, [
+                        'template' => '{input}{error}',
+                        'options' => ['class' => 'input-group picker-range'],
+                            ]
+                    )->textInput($this->optionsTo);
         } else {
-            $inputFrom = $this->hasModel()
-                ? Html::activeTextInput($this->model, $this->attribute, $this->options)
-                : Html::textInput($this->name, $this->value, $this->options);
-            $inputTo = $this->hasModel()
-                ? Html::activeTextInput($this->model, $this->attributeTo, $this->optionsTo)
-                : Html::textInput($this->nameTo, $this->valueTo, $this->optionsTo);
+            $inputFrom = $this->hasModel() ? Html::activeTextInput($this->model, $this->attribute, $this->options) : Html::textInput($this->name, $this->value, $this->options);
+            $inputTo = $this->hasModel() ? Html::activeTextInput($this->model, $this->attributeTo, $this->optionsTo) : Html::textInput($this->nameTo, $this->valueTo, $this->optionsTo);
         }
         echo Html::tag(
-            'div',
-            strtr(
-                $this->_template,
-                ['{inputFrom}' => $inputFrom, '{labelTo}' => $this->labelTo, '{inputTo}' => $inputTo]
-            ), $this->containerOptions);
+                'div', strtr(
+                        $this->_template, ['{inputFrom}' => $inputFrom, '{labelTo}' => $this->labelTo, '{inputTo}' => $inputTo]
+                ), $this->containerOptions);
 
         $this->registerClientScript();
     }
@@ -125,12 +122,11 @@ class FieldRangePicker extends InputWidget
     /**
      * Registers required script for the plugin to work as DateRangePicker
      */
-    public function registerClientScript()
-    {
+    public function registerClientScript() {
         $js = [];
         $view = $this->getView();
 
-        FieldRangePickerAsset::register($view);     
+        FieldRangePickerAsset::register($view);
     }
 
 }
