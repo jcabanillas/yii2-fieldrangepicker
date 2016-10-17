@@ -41,6 +41,14 @@ class FieldRangePicker extends InputWidget
      */
     public $labelTo = 'to';
     /**
+     * @var string the size of the input ('lg', 'md', 'sm', 'xs')
+     */
+    public $size;
+    /**
+     * @var array HTML attributes to render on the container
+     */
+    public $containerOptions = [];
+    /**
      * @var \yii\widgets\ActiveForm useful for client validation of attributeTo
      */
     public $form;
