@@ -1,0 +1,36 @@
+{
+    "name": "jcabanillas/yii2-fieldrangewidget",
+    "description": "Bootstrap FieldRangePicker widget for Yii2.",
+    "type": "yii2-extension",
+    "keywords": [
+        "jcabanillas",
+        "yii",
+        "yii2",
+        "yii 2",
+        "extension",
+        "widget",
+        "fieldrangepicker"
+    ],
+    "license": "BSD-3-Clause",
+   "support": {
+        "issues": "https://github.com/jcabanillas/yii2-fieldrangepicker/issues",
+        "wiki": "https://github.com/jcabanillas/yii2-fieldrangepicker/wiki/",
+        "source": "https://github.com/jcabanillas/yii2-fieldrangepicker"
+    },
+    "authors": [
+        {
+            "name": "Javier Cabanillas",
+            "email": "jcabanillas@bitevolution.net",
+            "homepage": "https://bitevolution.net"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": ">=2.0.9",
+        "yiisoft/yii2-bootstrap": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "jcabanillas\\fieldrangepicker\\": "src"
+        }
+    }
+}
