@@ -1,5 +1,5 @@
 {
-    "name": "jcabanillas/yii2-fieldrangewidget",
+    "name": "jcabanillas/yii2-fieldrangepicker",
     "description": "Bootstrap FieldRangePicker widget for Yii2.",
     "type": "yii2-extension",
     "keywords": [
