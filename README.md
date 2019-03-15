@@ -10,7 +10,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require jcabanillas/yii2-fieldrangepicker "*"
+composer require pantsakov/yii2-fieldrangepicker "*"
 ```
 or add
 
